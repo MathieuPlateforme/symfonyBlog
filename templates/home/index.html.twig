@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+<p>
+    Pour se connecter: utilisateur1:password1
+</p>
+<div>
+Derniers articles:
+{% include 'article/list.html.twig' with { articles } %}
+</div>
+{% endblock %}

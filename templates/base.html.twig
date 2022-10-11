@@ -14,6 +14,35 @@
         {% endblock %}
     </head>
     <body>
+    <header>
+    {% if is_granted('ROLE_ADMIN') %}
+    <nav>
+    <ul>
+        <li>
+            <a href="{{ path('admin')}}">Admin Dashboard</a>
+        </li>
+    </ul>
+    </nav>
+    {% endif %}
+    <nav>
+        <ul>
+            <li>
+                <a href="{{ path('app_home')}}">Home</a>
+            </li>
+            {% if is_granted('ROLE_USER') %}
+            <li>
+                <a href="{{ path('app_logout')}}">Logout</a>
+            </li>
+            {% else %}
+            <li>
+                <a href="{{ path('app_login')}}">Login</a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+    </header>
+    <main class="container">
         {% block body %}{% endblock %}
+    </main>
     </body>
 </html>

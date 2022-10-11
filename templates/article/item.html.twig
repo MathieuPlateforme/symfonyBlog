@@ -1,0 +1,6 @@
+<article>
+    <a href="{{ path('article_show', { 'id': article.id }) }}"> {{ article.title }} </a>
+        <p>{{ article.article|striptags }}</p>
+        <p>{{ article.date|date('d M Y') }}</p>
+        <p>{{ article.user }}</p>
+</article>
